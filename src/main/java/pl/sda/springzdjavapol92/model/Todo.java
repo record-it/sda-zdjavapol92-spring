@@ -1,10 +1,10 @@
 package pl.sda.springzdjavapol92.model;
+import lombok.Builder;
 import lombok.Data;
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 @Data
+@Builder
 public class Todo {
     private long id;
     private String title;

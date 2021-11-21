@@ -31,4 +31,10 @@ public class HomeController {
         model.addAttribute("todo", todoService.add(todo));
         return "confirm-todo";
     }
+
+    @GetMapping("/todo/list")
+    public String todoList(Model model){
+        model.addAttribute("todos", todoService.findAll());
+        return "todo-list";
+    }
 }
