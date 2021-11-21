@@ -5,44 +5,44 @@
 <h2>Lista zadań</h2>
 <table>
     <thead>
-        <tr>
-            <th>Treść zadania</th>
-            <th>Osoba odpowiedzialna</th>
-            <th>Termin wykonania</th>
-            <th>Czy wykonano</th>
-            <th>Data utworzenia</th>
-        </tr>
+    <tr>
+        <th>Treść zadania</th>
+        <th>Osoba odpowiedzialna</th>
+        <th>Termin wykonania</th>
+        <th>Czy wykonano</th>
+        <th>Data utworzenia</th>
+    </tr>
     </thead>
     <tbody>
-        <jsp:useBean id="todos" scope="request" type="java.util.List<pl.sda.springzdjavapol92.model.Todo>"/>
-        <c:forEach items="${todos}" var="todo">
-            <tr>
-                <td>
+    <jsp:useBean id="todos" scope="request" type="java.util.List<pl.sda.springzdjavapol92.model.Todo>"/>
+    <c:forEach items="${todos}" var="todo">
+        <tr>
+            <td>
                     ${todo.title}
-                </td>
-                <td>
+            </td>
+            <td>
                     ${todo.person}
-                </td>
-                <td>
+            </td>
+            <td>
                     ${todo.deadline}
-                </td>
-                <td>
+            </td>
+            <td>
+                <c:if test="${todo.completed}">
+                    <input type="checkbox" checked disabled>
+                </c:if>
+                <c:if test="${!todo.completed}">
                     <form action="/todo/completed" method="post">
                         <input type="hidden" name="id" value="${todo.id}">
-                    <c:if test="${todo.completed}">
-                        <input type="checkbox" checked disabled>
-                    </c:if>
-                    <c:if test="${!todo.completed}">
                         <input type="checkbox" name="completed" required>
-                    </c:if>
-                        <button type="button">Zapisz wykonanie</button>
+                        <button type="submit">Zapisz wykonanie</button>
                     </form>
-                </td>
-                <td>
+                </c:if>
+            </td>
+            <td>
                     ${todo.created}
-                </td>
-            </tr>
-        </c:forEach>
+            </td>
+        </tr>
+    </c:forEach>
     </tbody>
 </table>
 <a href="/todo/add">Formularz nowego zadania</a>

@@ -40,9 +40,8 @@ public class HomeController {
     }
 
     @PostMapping("/todo/completed")
-    public String setTodoAsCompleted(@RequestParam long id, @RequestParam Boolean completed){
-        System.out.println(id);
-        System.out.println(completed);
+    public String setTodoAsCompleted(@RequestParam long id){
+        todoService.setAsCompleted(id);
         return "redirect:/todo/list";
     }
 }
