@@ -1,7 +1,9 @@
 <jsp:useBean id="todo" scope="request" type="pl.sda.springzdjavapol92.model.Todo"/>
 <%@page contentType="text/html" language="java" pageEncoding="UTF-8" %>
 <html>
+<%@include file="head.jspf"%>
 <body>
+<%@include file="nav.jspf"%>
 <%--    Dodaj wyświetlenie pozostałych pól klasy Todo--%>
     <h1> Ok, dodałeś nowe zadanie</h1>
     <p>Tytuł: ${todo.title}</p>

@@ -1,13 +1,8 @@
+<%@page contentType="text/html" language="java" pageEncoding="UTF-8" %>
 <html>
+<%@include file="head.jspf"%>
 <body>
+<%@include file="nav.jspf"%>
 <h1>Hello from JSP</h1>
-<ul>
-    <li>
-        <a href="${pageContext.request.contextPath}/todo/add">Formularz zadania do wykonania</a>
-    </li>
-    <li>
-        <a href="${pageContext.request.contextPath}/todo/list">Lista zadań</a>
-    </li>
-</ul>
 </body>
 </html>

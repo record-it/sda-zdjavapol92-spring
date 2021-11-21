@@ -1,9 +1,12 @@
 <%@page language="java" pageEncoding="UTF-8" contentType="text/html" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
+<%@include file="head.jspf"%>
 <body>
+<%@include file="nav.jspf"%>
+<div class="container m-6">
 <h2>Lista zadań</h2>
-<table>
+<table class="table">
     <thead>
     <tr>
         <th>Treść zadania</th>
@@ -28,13 +31,13 @@
             </td>
             <td>
                 <c:if test="${todo.completed}">
-                    <input type="checkbox" checked disabled>
+                    <input class = "form-check-input" type="checkbox" checked disabled>
                 </c:if>
                 <c:if test="${!todo.completed}">
                     <form action="/todo/completed" method="post">
                         <input type="hidden" name="id" value="${todo.id}">
-                        <input type="checkbox" name="completed" required>
-                        <button type="submit">Zapisz wykonanie</button>
+                        <input class="form-check-input" type="checkbox" name="completed" required>
+                        <button class="btn btn-danger" type="submit">Zapisz wykonanie</button>
                     </form>
                 </c:if>
             </td>
@@ -45,6 +48,6 @@
     </c:forEach>
     </tbody>
 </table>
-<a href="/todo/add">Formularz nowego zadania</a>
+</div>
 </body>
 </html>
