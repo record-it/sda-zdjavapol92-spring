@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import pl.sda.springzdjavapol92.model.Todo;
 import pl.sda.springzdjavapol92.service.TodoService;
 
@@ -36,5 +37,12 @@ public class HomeController {
     public String todoList(Model model){
         model.addAttribute("todos", todoService.findAll());
         return "todo-list";
+    }
+
+    @PostMapping("/todo/completed")
+    public String setTodoAsCompleted(@RequestParam long id, @RequestParam Boolean completed){
+        System.out.println(id);
+        System.out.println(completed);
+        return "redirect:/todo/list";
     }
 }

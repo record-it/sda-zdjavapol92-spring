@@ -29,6 +29,7 @@ public class TodoServiceInMemory implements TodoService{
         add(Todo.builder()
                 .person("Zenek")
                 .title("Koncert")
+                .completed(true)
                 .deadline("2022-10-10")
                 .build());
     }
