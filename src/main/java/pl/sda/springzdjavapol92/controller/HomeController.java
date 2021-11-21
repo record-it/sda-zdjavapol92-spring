@@ -6,9 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.sda.springzdjavapol92.model.Todo;
+import pl.sda.springzdjavapol92.service.TodoService;
 
 @Controller
 public class HomeController {
+    private final TodoService todoService;
+
+    public HomeController(TodoService todoService) {
+        this.todoService = todoService;
+    }
 
     @GetMapping("/")
     public String index(){
@@ -22,8 +28,7 @@ public class HomeController {
 
     @PostMapping("/todo/add")
     public String todoAdd(@ModelAttribute Todo todo, Model model){
-        //TODO dodać nowe zadanie do kolekcji
-        model.addAttribute("todo", todo);
+        model.addAttribute("todo", todoService.add(todo));
         return "confirm-todo";
     }
 }
