@@ -3,9 +3,14 @@ package pl.sda.springzdjavapol92.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.springzdjavapol92.model.Book;
 
+import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -13,7 +18,7 @@ import java.util.Optional;
 public class RestBookController {
 
     @PostMapping("/books")
-    public ResponseEntity<Book> addBook(@RequestBody Book book){
+    public ResponseEntity<Book> addBook(@Valid @RequestBody Book book){
         book.setId(100);
         return ResponseEntity.status(HttpStatus.CREATED).body(book);
     }
@@ -33,5 +38,4 @@ public class RestBookController {
         System.out.println(value);
         return ResponseEntity.ok().build();
     }
-
 }
