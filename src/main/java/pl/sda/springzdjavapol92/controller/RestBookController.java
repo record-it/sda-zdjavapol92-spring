@@ -1,12 +1,12 @@
 package pl.sda.springzdjavapol92.controller;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.sda.springzdjavapol92.model.Book;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -17,4 +17,21 @@ public class RestBookController {
         book.setId(100);
         return ResponseEntity.status(HttpStatus.CREATED).body(book);
     }
+
+    @GetMapping("/books/{id}")
+    public ResponseEntity<Book> readBook(@PathVariable long id){
+        Book book = new Book();
+        book.setId(id);
+        book.setAuthor("Autor");
+        book.setTitle("Tytuł");
+        return ResponseEntity.of(id < 20 ? Optional.of(book) : Optional.empty());
+    }
+
+    @PatchMapping("/books/author/{id}")
+    public ResponseEntity<Book> updateBookAuthor(@PathVariable long id, @RequestParam String value){
+        System.out.println(id);
+        System.out.println(value);
+        return ResponseEntity.ok().build();
+    }
+
 }
