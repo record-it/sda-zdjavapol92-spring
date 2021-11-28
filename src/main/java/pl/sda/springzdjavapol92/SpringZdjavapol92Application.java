@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import pl.sda.springzdjavapol92.entity.EntityTodo;
+import pl.sda.springzdjavapol92.repository.TodoRepository;
 
 import java.time.LocalDate;
 
@@ -21,6 +22,7 @@ public class SpringZdjavapol92Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+
         EntityTodo todo = new EntityTodo();
         todo.setPerson("Adam");
         todo.setTitle("Test");
