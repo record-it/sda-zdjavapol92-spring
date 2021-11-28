@@ -1,6 +1,9 @@
 package pl.sda.springzdjavapol92.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 /*
@@ -11,6 +14,9 @@ import org.hibernate.validator.constraints.Length;
   3. Dodaj exeptionHandler
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Book {
     private long id;
     @Length(min = 1, max = 120, message = "Tytuł nie może być pusty i dłuży od 120 znaków!")

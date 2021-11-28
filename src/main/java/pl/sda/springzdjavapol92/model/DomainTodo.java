@@ -19,5 +19,4 @@ public class DomainTodo {
     private LocalDate deadline;
     private String person;
     private boolean completed;
-    private Timestamp created;
 }

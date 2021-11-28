@@ -8,10 +8,12 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.springzdjavapol92.dto.NewTodoDto;
+import pl.sda.springzdjavapol92.model.DomainTodo;
 import pl.sda.springzdjavapol92.model.Todo;
 
 import javax.validation.Valid;
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.HashMap;

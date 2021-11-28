@@ -22,17 +22,15 @@ public class SpringZdjavapol92Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
-        EntityTodo todo = new EntityTodo();
-        todo.setPerson("Adam");
-        todo.setTitle("Test");
-        todo.setDeadline(LocalDate.of(2021, 12, 12));
-        todoRepository.save(todo);
-        todo = new EntityTodo();
-        todo.setPerson("Ewa");
-        todo.setTitle("Java");
-        todo.setDeadline(LocalDate.of(2021, 12, 16));
-        todoRepository.save(todo);
-        System.out.println(todoRepository.findAll());
+//        EntityTodo todo = new EntityTodo();
+//        todo.setPerson("Adam");
+//        todo.setTitle("Test");
+//        todo.setDeadline(LocalDate.of(2021, 12, 12));
+//        todoRepository.save(todo);
+//        todo = new EntityTodo();
+//        todo.setPerson("Ewa");
+//        todo.setTitle("Java");
+//        todo.setDeadline(LocalDate.of(2021, 12, 16));
+//        todoRepository.save(todo);
     }
 }
