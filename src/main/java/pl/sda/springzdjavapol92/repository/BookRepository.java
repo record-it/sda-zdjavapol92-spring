@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface BookRepository extends JpaRepository<EntityBook, Long> {
-    //,metody generowane przez Spring Jpa na podstawie sygnatury
+    //Metody generowane przez Spring Jpa na podstawie sygnatury
     List<EntityBook> findByAuthor(String author);
     int countByAuthor(String author);
     int countByAuthorAndAndTitleStartingWith(String author, String titleStart);

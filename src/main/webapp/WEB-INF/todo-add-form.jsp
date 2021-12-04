@@ -1,3 +1,4 @@
+<jsp:useBean id="principal" scope="request" type="pl.sda.springzdjavapol92.entity.AppUser"/>
 <%@page language="java" pageEncoding="UTF-8" contentType="text/html" %>
 <html>
 <%@include file="head.jspf" %>
@@ -7,6 +8,7 @@
 
     <h2 class="lead-2">Dodaj zadanie do wykonania</h2>
     <form method="post">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
         <div class="mb-3">
             <label for="title">Tytuł zadania</label>
             <input class="form-control" type="text" name="title" id="title"/>
@@ -17,7 +19,7 @@
         </div>
         <div class="mb-3">
             <label for="person">Osoba odpowiedzialna</label>
-            <input class="form-control" type="text" name="person" id="person">
+            <input class="form-control" type="text" name="person" id="person" value="${principal.firstName} ${principal.lastName}">
         </div>
         <div class="mb-3">
             <button class="btn btn-primary" type="submit">Zapisz</button>

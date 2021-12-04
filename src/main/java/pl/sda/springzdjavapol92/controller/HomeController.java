@@ -1,11 +1,13 @@
 package pl.sda.springzdjavapol92.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import pl.sda.springzdjavapol92.entity.AppUser;
 import pl.sda.springzdjavapol92.model.Todo;
 import pl.sda.springzdjavapol92.service.TodoService;
 
@@ -23,7 +25,8 @@ public class HomeController {
     }
 
     @GetMapping("/todo/add")
-    public String todoAddForm(){
+    public String todoAddForm(@AuthenticationPrincipal AppUser user, Model model){
+        model.addAttribute("principal", user);
         return "todo-add-form";
     }
 

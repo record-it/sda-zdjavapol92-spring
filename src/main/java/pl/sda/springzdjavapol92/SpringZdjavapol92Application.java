@@ -51,7 +51,9 @@ public class SpringZdjavapol92Application implements CommandLineRunner {
                         .email("karol@op.pl")
                         .password("$2a$12$3oNS46NJ2ElY79uZ7MikvOObXJnqiKfmF9aaNVezyyz9n9lQjcTs6")
                         .enabled(true)
-                        .role("ROLE_USER")
+                        .role("ROLE_USER ROLE_ADMIN")
+                        .firstName("Karol")
+                        .lastName("Nowak")
                         .build()
         );
         appUserRepository.save(
@@ -59,6 +61,8 @@ public class SpringZdjavapol92Application implements CommandLineRunner {
                         .email("admin")
                         .password("$2a$12$3oNS46NJ2ElY79uZ7MikvOObXJnqiKfmF9aaNVezyyz9n9lQjcTs6")
                         .enabled(true)
+                        .firstName("Ewa")
+                        .lastName("Kowal")
                         .role("ROLE_ADMIN")
                         .build()
         );
