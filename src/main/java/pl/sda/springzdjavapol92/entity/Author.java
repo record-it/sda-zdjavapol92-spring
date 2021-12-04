@@ -31,6 +31,7 @@ public class Author {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", articles=" + articles.stream().map(a -> a.getTitle()).reduce("",(a, i) -> a + (a.isEmpty() ? "" : ", ") + i) +
                 '}';
     }
 }

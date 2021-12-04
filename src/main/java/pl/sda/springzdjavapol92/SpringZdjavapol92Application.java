@@ -84,6 +84,6 @@ public class SpringZdjavapol92Application implements CommandLineRunner {
                         .build()
         );
         System.out.println(articleRepository.findAll());
-        System.out.println(authorRepository.findAll().get(0).getArticles());
+        System.out.println(authorRepository.findAll());
     }
 }

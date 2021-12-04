@@ -29,6 +29,7 @@ public class Article {
         return "Article{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
+                ", authors=" + authors.stream().map(a -> a.getLastName()).reduce("", (a, i) -> a + (a.isEmpty() ? "" : ", ") + i) +
                 '}';
     }
 }
