@@ -3,15 +3,9 @@ package pl.sda.springzdjavapol92;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import pl.sda.springzdjavapol92.entity.Article;
-import pl.sda.springzdjavapol92.entity.Author;
+import pl.sda.springzdjavapol92.entity.AppUser;
 import pl.sda.springzdjavapol92.entity.EntityBook;
-import pl.sda.springzdjavapol92.repository.ArticleRepository;
-import pl.sda.springzdjavapol92.repository.AuthorRepository;
-import pl.sda.springzdjavapol92.repository.BookRepository;
-import pl.sda.springzdjavapol92.repository.TodoRepository;
-
-import java.util.*;
+import pl.sda.springzdjavapol92.repository.*;
 
 @SpringBootApplication
 public class SpringZdjavapol92Application implements CommandLineRunner {
@@ -19,12 +13,14 @@ public class SpringZdjavapol92Application implements CommandLineRunner {
     final BookRepository bookRepository;
     final ArticleRepository articleRepository;
     final AuthorRepository authorRepository;
+    final AppUserRepository appUserRepository;
 
-    public SpringZdjavapol92Application(TodoRepository todoRepository, BookRepository bookRepository, ArticleRepository articleRepository, AuthorRepository authorRepository) {
+    public SpringZdjavapol92Application(TodoRepository todoRepository, BookRepository bookRepository, ArticleRepository articleRepository, AuthorRepository authorRepository, AppUserRepository appUserRepository) {
         this.todoRepository = todoRepository;
         this.bookRepository = bookRepository;
         this.articleRepository = articleRepository;
         this.authorRepository = authorRepository;
+        this.appUserRepository = appUserRepository;
     }
 
     public static void main(String[] args) {
@@ -50,5 +46,21 @@ public class SpringZdjavapol92Application implements CommandLineRunner {
                 .title("Java for greens")
                 .build());
         bookRepository.flush();
+        appUserRepository.save(
+                AppUser.builder()
+                        .email("karol@op.pl")
+                        .password("$2a$12$3oNS46NJ2ElY79uZ7MikvOObXJnqiKfmF9aaNVezyyz9n9lQjcTs6")
+                        .enabled(true)
+                        .role("ROLE_USER")
+                        .build()
+        );
+        appUserRepository.save(
+                AppUser.builder()
+                        .email("admin")
+                        .password("$2a$12$3oNS46NJ2ElY79uZ7MikvOObXJnqiKfmF9aaNVezyyz9n9lQjcTs6")
+                        .enabled(true)
+                        .role("ROLE_ADMIN")
+                        .build()
+        );
     }
 }
