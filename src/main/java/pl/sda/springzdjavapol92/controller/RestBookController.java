@@ -1,5 +1,6 @@
 package pl.sda.springzdjavapol92.controller;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.springzdjavapol92.model.Book;
@@ -17,7 +18,7 @@ public class RestBookController {
         return ResponseEntity.status(HttpStatus.CREATED).body(book);
     }
 
-    @GetMapping( "/{id}")
+    @GetMapping( value = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<Book> readBook(@PathVariable long id){
         Book book = new Book();
         book.setId(id);

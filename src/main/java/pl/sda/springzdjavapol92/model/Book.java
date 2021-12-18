@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /*
   1. Dodaj walidację dla obu pól
   autor - długość od 3 do 15 znaków
@@ -17,6 +19,7 @@ import org.hibernate.validator.constraints.Length;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 public class Book {
     private long id;
     @Length(min = 1, max = 120, message = "Tytuł nie może być pusty i dłuży od 120 znaków!")
