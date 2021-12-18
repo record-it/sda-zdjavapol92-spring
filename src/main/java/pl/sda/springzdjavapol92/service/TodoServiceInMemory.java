@@ -1,5 +1,6 @@
 package pl.sda.springzdjavapol92.service;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import pl.sda.springzdjavapol92.model.Todo;
 
@@ -9,6 +10,7 @@ import java.time.ZoneOffset;
 import java.util.*;
 
 @Service
+@Profile("dev")
 public class TodoServiceInMemory implements TodoService{
     private Map<Long, Todo> todos = new HashMap<>();
     private long currentId = 1;

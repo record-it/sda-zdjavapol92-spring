@@ -1,6 +1,7 @@
 package pl.sda.springzdjavapol92.service;
 
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import pl.sda.springzdjavapol92.entity.EntityTodo;
 import pl.sda.springzdjavapol92.mapper.TodoMapper;
@@ -12,7 +13,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-@Primary
+@Profile("default")
 public class JpaTodoService implements TodoService{
 
     private final TodoRepository todoRepository;
